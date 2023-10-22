@@ -18,8 +18,7 @@ jobs:
   
       - name: Fetch latest data
         run: |-
-          mkdir -p $GITHUB_WORKSPACE/data/usa
-          curl -s "https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/votes-remaining-page/national/president.json" | jq . > $GITHUB_WORKSPACE/data/usa/results.json
+          curl -s "https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/votes-remaining-page/national/president.json" | jq . > usa-results.json
 
       - name: Commit and push
         run: |-
