@@ -13,7 +13,6 @@ jobs:
     steps:
       - name: Create directory structure (if it doesn't exist)
         run: mkdir -p data/usa
-        working-directory: ${{ github.workspace }}
   
       - name: Checkout this repo
         uses: actions/checkout@v3
@@ -22,8 +21,8 @@ jobs:
   
       - name: Fetch latest data
         run: |-
-          curl -s "https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/votes-remaining-page/national/president.json" | jq . > data/usa/results.json
-        working-directory: ${{ github.workspace }}
+          curl -s "https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/votes-remaining-page/national/president.json" | jq . > results.json
+        working-directory: ./data/usa
 
       - name: Commit and push
         run: |-
